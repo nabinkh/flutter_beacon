@@ -1,6 +1,7 @@
 package com.flutterbeacon;
 
 import org.altbeacon.beacon.Beacon;
+import org.altbeacon.beacon.BeaconParser;
 import org.altbeacon.beacon.Identifier;
 import org.altbeacon.beacon.MonitorNotifier;
 import org.altbeacon.beacon.Region;
@@ -36,6 +37,7 @@ class FlutterBeaconUtils {
     map.put("major", beacon.getId2().toInt());
     map.put("minor", beacon.getId3().toInt());
     map.put("rssi", beacon.getRssi());
+    map.put("rawData",beacon.getRawData());
     map.put("txPower", beacon.getTxPower());
     map.put("accuracy", String.format(Locale.US, "%.2f", beacon.getDistance()));
     map.put("macAddress", beacon.getBluetoothAddress());
