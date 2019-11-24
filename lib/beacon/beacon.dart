@@ -36,6 +36,9 @@ class Beacon {
 
   /// The proximity of beacon.
   final Proximity _proximity;
+  
+  /// The raw data broadcasted by the beacon.
+  final String rawData;
 
   const Beacon(
       {this.proximityUUID,
@@ -43,6 +46,7 @@ class Beacon {
       this.major,
       this.minor,
       this.rssi,
+      this.rawData,
       this.txPower,
       this.accuracy})
       : this._proximity = null;
@@ -54,6 +58,7 @@ class Beacon {
         major = json['major'],
         minor = json['minor'],
         rssi = _parseInt(json['rssi']),
+        rawData = json["rawData"],
         txPower = _parseInt(json['txPower']),
         accuracy = _parseDouble(json['accuracy']),
         _proximity = _parseProximity(json['proximity']);
@@ -126,6 +131,7 @@ class Beacon {
       'major': major,
       'minor': minor,
       'rssi': rssi ?? -1,
+      'rawData': rawData
       'accuracy': accuracy,
       'proximity': proximity.toString()
     };
