@@ -131,7 +131,7 @@ class Beacon {
       'major': major,
       'minor': minor,
       'rssi': rssi ?? -1,
-      'rawData': rawData
+      'rawData': rawData,
       'accuracy': accuracy,
       'proximity': proximity.toString()
     };
